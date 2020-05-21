@@ -1,0 +1,120 @@
+<div class="card-group" style="height:590px;">
+    <div class="card">
+      <div align=center class="card-header" style="background-color:blueviolet;">Global</div>
+      <div align=center>
+        <img src="assets/images/map-background.png" style=" width:100px;;height:100px;" class="card-img-top" alt="..."> 
+      </div>
+      <div class="card-body" style="background-color:lightgray;">
+        <mat-form-field>
+            <mat-label>Choose a date</mat-label>
+            <input matInput [matDatepicker]="picker1" [(ngModel)]="world_date" name="name11" (ngModelChange)="updateGlobal($event)" >
+            <mat-datepicker-toggle matSuffix [for]="picker1" ></mat-datepicker-toggle>
+            <mat-datepicker #picker1></mat-datepicker>
+        </mat-form-field>
+        <span #elseBlock *ngFor="let record of g_records" >
+          <span *ngIf="record.date.indexOf(world_date_string) !== -1">
+            <table class="table "  >
+              <tr class="table-active" >
+                <td >Deaths</td><td >{{record.deaths}}</td>
+              </tr>
+              <tr class="table-secondary">
+                <td >New Deaths</td><td >{{record.new_deaths}}</td>
+              </tr>
+              <tr class="table-active">
+                <td >Confirmed Cases</td><td >{{record.confirmed}}</td>
+              </tr>
+              <tr class="table-secondary">
+                <td >Active Cases</td><td >{{record.active}}</td>
+              </tr>
+              <tr class="table-active">
+                <td >Recovered</td><td >{{record.recovered}}</td>
+              </tr>
+            </table>
+          </span>
+        </span>
+      </div>
+      <div class="card-footer">
+        <small class="text-muted">Last updated 3 mins ago</small>
+      </div>
+    </div>
+
+    <div class="card ">
+      <div align=center class="card-header" style="background-color: blueviolet;">US</div>
+      <div align=center>
+        <img src="assets/images/Americas-map.png" style="width:100px;;height:100px;" class="card-img-top" alt="..."> 
+      </div>
+      <div class="card-body" style="background-color:lightgray;">
+        <mat-form-field>
+            <mat-label>Choose a date</mat-label>
+            <input matInput [matDatepicker]="picker2" [(ngModel)]="us_date" name="name12" (ngModelChange)="updateUs($event)" >
+            <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+            <mat-datepicker #picker2></mat-datepicker>
+        </mat-form-field>
+        <span #elseBlock *ngFor="let record of u_records.timeline" >
+          <span *ngIf="record.date.indexOf(us_date_string) !== -1">
+            <table class="table "  >
+              <tr class="table-active" >
+                <td >Deaths</td><td >{{record.deaths}}</td>
+              </tr>
+              <tr class="table-secondary">
+                <td >New Deaths</td><td >{{record.new_deaths}}</td>
+              </tr>
+              <tr class="table-active">
+                <td >Confirmed Cases</td><td >{{record.confirmed}}</td>
+              </tr>
+              <tr class="table-secondary">
+                <td >Active Cases</td><td >{{record.active}}</td>
+              </tr>
+              <tr class="table-active">
+                <td >Recovered</td><td >{{record.recovered}}</td>
+              </tr>
+            </table>
+          </span>
+        </span>
+      </div>
+      <div class="card-footer">
+        <small class="text-muted">Last updated {{u_records.updated_at}}</small>
+      </div>
+    </div>
+
+    <div class="card">
+      <div align=center class="card-header" style="background-color: blueviolet;">India</div>
+      <div align=center>
+        <img src="assets/images/India_map.svg" style="width:100px;;height:100px;" class="card-img-top" alt="..."> 
+      </div>
+      <div class="card-body" style="background-color:lightgray;">
+        <mat-form-field>
+            <mat-label>Choose a date</mat-label>
+            <input matInput [matDatepicker]="picker3" [(ngModel)]="india_date" name="name13" (ngModelChange)="updateIndia($event)">
+            <mat-datepicker-toggle matSuffix [for]="picker3" ></mat-datepicker-toggle>
+            <mat-datepicker #picker3></mat-datepicker>
+        </mat-form-field> 
+        <span #elseBlock *ngFor="let record of i_records.timeline" >
+          <span *ngIf="record.date.indexOf(india_date_string) !== -1">
+            <table class="table "  >
+              <tr class="table-active" >
+                <td >Deaths</td><td >{{record.deaths}}</td>
+              </tr>
+              <tr class="table-secondary">
+                <td >New Deaths</td><td >{{record.new_deaths}}</td>
+              </tr>
+              <tr class="table-active">
+                <td >Confirmed Cases</td><td >{{record.confirmed}}</td>
+              </tr>
+              <tr class="table-secondary">
+                <td >Active Cases</td><td >{{record.active}}</td>
+              </tr>
+              <tr class="table-active">
+                <td >Recovered</td><td >{{record.recovered}}</td>
+              </tr>
+            </table>
+          </span>
+        </span>
+      </div>
+      <div class="card-footer">
+        <small class="text-muted">Last updated {{i_records.updated_at}}</small>
+      </div>
+    </div>
+   
+</div>
+  
