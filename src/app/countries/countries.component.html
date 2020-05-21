@@ -1,0 +1,76 @@
+<br>
+<div align=center>
+    <mat-form-field>
+        <mat-label>Select Country</mat-label>
+        <mat-select [(ngModel)]="country" name="country" (ngModelChange)="getCountry($event)">
+        <mat-option *ngFor="let country of countries" [value]="country.code"  >
+            {{country.name}}
+        </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <br>
+    <button mat-raised-button color="accent" (click)="refresh()"  ><mat-icon>autorenew</mat-icon>Get Charts</button>
+    <br>
+
+    <div class="card-group" >
+        <div class="card"  >
+            <div class="card-body" align=center >
+                <div id="divChart1" >
+                    <canvas id="deathChart"  colors="chartColors">
+                        
+                    </canvas>
+                </div>
+            </div>
+        </div>
+        <div class="card"  >
+            <div class="card-body" align=center >
+                <div id="divChart2" >
+                    <canvas id="activeChart"  colors="chartColors">
+                        
+                    </canvas>
+                </div>
+            </div>
+        </div>
+        <div class="card"  >
+            <div class="card-body" align=center >
+                <div id="divChart3" >
+                    <canvas id="recoverChart"  colors="chartColors">
+                        
+                    </canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="card-group" >
+    <div class="card"  >
+        <div class="card-body" align=center >
+            <div id="divChart4" >
+                <canvas id="deathConfirmedChart"  colors="chartColors">
+                    
+                </canvas>
+                </div>
+        </div>
+    </div>
+    <div class="card"  >
+        <div class="card-body" align=center >
+            <div id="divChart5" >
+                <canvas id="newCaseChart"  colors="chartColors">
+                    
+                </canvas>
+                </div>
+        </div>
+    </div>
+    <div class="card"  >
+        <div class="card-body" align=center >
+            <div id="divChart6" >
+                <canvas id="newDeath"  colors="chartColors">
+                    
+                </canvas>
+                </div>
+        </div>
+    </div>
+    </div>
+
+</div>
