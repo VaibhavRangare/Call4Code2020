@@ -1,0 +1,60 @@
+<div class="card-group" style="height:590px;">
+    <div class="card"  >
+      <div align=center class="card-header" style="background-color:mediumpurple;">India</div>
+      <div align=center style="height:100px;">
+      <img src="assets/images/India_map.svg" style="width:100px;;height:100px;" class="card-img-top" alt="..."> 
+      </div>
+      <div class="card-body" align=center style="background-color:lightgray;">
+        <mat-form-field>
+            <mat-label>Choose a date</mat-label>
+            <input matInput [matDatepicker]="picker3" [(ngModel)]="india_date" name="name13" (ngModelChange)="updateIndiaRecords($event)">
+            <mat-datepicker-toggle matSuffix [for]="picker3" ></mat-datepicker-toggle>
+            <mat-datepicker #picker3></mat-datepicker>
+          </mat-form-field>
+          <span #elseBlock *ngFor="let record of i_records.timeline" >
+            <span *ngIf="record.date.indexOf(india_date_string) !== -1">
+              <table class="table "  >
+                <tr class="table-active" >
+                  <td >Deaths</td><td >{{record.deaths}}</td>
+                </tr>
+                <tr class="table-secondary">
+                  <td >New Deaths</td><td >{{record.new_deaths}}</td>
+                </tr>
+                <tr class="table-active">
+                  <td >Confirmed Cases</td><td >{{record.confirmed}}</td>
+                </tr>
+                <tr class="table-secondary">
+                  <td >Active Cases</td><td >{{record.active}}</td>
+                </tr>
+                <tr class="table-active">
+                  <td >Recovered</td><td >{{record.recovered}}</td>
+                </tr>
+              </table>
+            </span>
+          </span>
+  
+    </div>
+      <div class="card-footer" align=center>
+        <small class="text-muted">Last updated {{i_records.updated_at}}</small>
+      </div>
+    </div>
+    
+    <div class="card"  >
+      <div align=center class="card-header" style="background-color: mediumpurple;">Refersh Graph
+      </div>
+      <div align=center  style="height:100px;">
+      <br>
+      <button mat-raised-button color="accent" (click)="refresh()"  ><mat-icon>autorenew</mat-icon></button>
+      </div>
+      <div class="card-body" align=center style="background-color: lightgray;">
+        <div id="divChart" >
+          <canvas id="myChart"  colors="chartColors">
+              
+          </canvas>
+      </div>
+      </div>
+      <div class="card-footer" align=center>
+        <small class="text-muted">Last updated {{i_records.updated_at}}</small>
+      </div>
+    </div>
+  </div>
