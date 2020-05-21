@@ -1,0 +1,17 @@
+<div align=center>
+    <div class="card " style="width:auto;;height:auto;">
+        <div class="card-header">Coronavirus news and vaccine update</div>
+        <div class="card-body" *ngFor="let number of ids" style="background-color: rgb(229, 229, 243);">
+          <h5 class="card-title">{{number.title}}</h5>
+          <youtube-player videoId="{{number.id}}"></youtube-player>
+          <h5 class="card-title">{{number.description}}</h5>
+          <hr>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted">Last updated 3 mins ago</small>
+        </div>
+      </div>
+    </div>
+    
+    
+    
