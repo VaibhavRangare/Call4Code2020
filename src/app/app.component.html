@@ -1,0 +1,67 @@
+<mat-sidenav-container class="sidenav-container" >
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === false" style="background-color: rgb(229, 229, 243);">
+    <mat-toolbar> 
+      <mat-icon>code</mat-icon>Call4Code
+    </mat-toolbar>
+    <mat-nav-list >
+      <button mat-menu-item  routerLink="/home"><mat-icon>home</mat-icon>Home</button>
+      <button mat-menu-item  routerLink="/india"><mat-icon>forward</mat-icon>India</button>
+      <button mat-menu-item  routerLink="/global"><mat-icon>forward</mat-icon>Global</button>
+      <button mat-menu-item  routerLink="/countries"><mat-icon>forward</mat-icon>Countries</button>
+      <button mat-menu-item  routerLink="/usindiacharts"><mat-icon>forward</mat-icon>Us/India</button>
+      <button mat-menu-item  routerLink="/videos"><mat-icon>video_library</mat-icon>Videos</button>
+      <button mat-menu-item  routerLink="/downloads"><mat-icon>get_app</mat-icon>Download PPT</button>
+     </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content >
+    <mat-toolbar color="primary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span >
+        <img src="assets/images/2746582.svg" style="width: 100px;height:50px;;">
+        <mat-icon>code</mat-icon>&nbsp;Call4Code 2020
+      </span>
+      <div style="flex: 1 1 auto;"></div>
+      <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item>
+          <mat-icon>home</mat-icon>
+          <span routerLink="/home">Home</span>
+        </button>
+        <button mat-menu-item >
+          <mat-icon>group</mat-icon>
+          <span routerLink="/aboutus">Team</span>
+        </button>
+        <button mat-menu-item>
+          <mat-icon>contact_mail</mat-icon>
+          <span routerLink="/contactus">Contact Us</span>
+        </button>
+      </mat-menu>
+     </mat-toolbar>
+  </mat-sidenav-content>
+  <mat-sidenav-content style="background-color: rgb(238, 232, 232);"> 
+    <router-outlet ></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container> 
+
+<!-- 
+<footer style="background-color: rgb(42, 30, 214);height:60px;"> 
+  <div class="container" >
+     
+      <span style="color:white;"> 
+        &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<mat-icon>games</mat-icon>Puzzle15 World</span>
+    </div>
+
+</footer>
+-->
